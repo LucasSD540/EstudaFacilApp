@@ -12,7 +12,7 @@ const Header = () => {
             <img src={logo} alt="Logo" />
             <p>
               <span className="purple">Estuda</span>{" "}
-              <span className="green">Facil</span>
+              <span className="green">Fácil</span>
             </p>
           </S.logoDiv>
         </Link>

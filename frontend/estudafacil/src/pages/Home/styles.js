@@ -62,21 +62,30 @@ export const planSection = styled.div`
     cursor: pointer;
   }
 
-  .right-img {
+  .first-img {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 240px;
-    max-width: 100px;
+    height: 200px;
+    max-width: 77.34px;
     width: 100%;
   }
 
-  .left-img {
+  .second-img {
     position: absolute;
     bottom: 0;
     left: 8px;
-    height: 240px;
-    max-width: 80px;
+    height: 200px;
+    max-width: 77.34px;
+    width: 100%;
+  }
+
+  .third-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+    max-width: 112.86px;
     width: 100%;
   }
 `;
