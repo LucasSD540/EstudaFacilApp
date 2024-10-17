@@ -1,10 +1,10 @@
-import banner from "../assets/images/banner.png";
-import school from "../assets/images/school_person.png";
-import university from "../assets/images/university_person.png";
-import business from "../assets/images/business_person.png";
+import banner from "../../components/assets/images/banner.png";
+import school from "../../components/assets/images/school_person.png";
+import university from "../../components/assets/images/university_person.png";
+import business from "../../components/assets/images/business_person.png";
 import * as S from "./styles";
 
-export const Main = () => {
+export const Home = () => {
   return (
     <div>
       <S.bannerImg src={banner} alt="Imagem do banner" />
@@ -47,4 +47,4 @@ export const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
