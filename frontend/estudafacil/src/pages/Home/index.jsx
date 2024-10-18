@@ -1,3 +1,4 @@
+import woman from "../../components/assets/images/woman.png";
 import banner from "../../components/assets/images/banner.png";
 import school from "../../components/assets/images/school_person.png";
 import university from "../../components/assets/images/university_person.png";
@@ -8,7 +9,22 @@ import * as S from "./styles";
 export const Home = () => {
   return (
     <div>
-      <S.bannerImg src={banner} alt="Imagem do banner" />
+      <S.bannerContainer>
+        <img
+          className="graduating_person-img"
+          src={woman}
+          alt="Mulher segurando canudo"
+        />
+        <div>
+          <h2 className="text-title">
+            VÁ ATÉ O CAMINHO DO SUCESSO E DESCUBRA SEU <span>POTENCIAL</span>
+          </h2>
+          <p className="text-subTitle">
+            Confira nossos Planos e libere seu potencial nos seus estudos!
+          </p>
+        </div>
+        <S.bannerImg src={banner} alt="Imagem do banner" />
+      </S.bannerContainer>
       <div className="container">
         <S.planSection>
           <h3>Planos</h3>

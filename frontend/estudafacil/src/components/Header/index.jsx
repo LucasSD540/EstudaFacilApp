@@ -55,7 +55,7 @@ const Header = () => {
             }
             to="/about"
           >
-            Sobre Nós
+            Sobre
           </NavLink>
         </nav>
         <Link className="logoStyle" to="/login">
