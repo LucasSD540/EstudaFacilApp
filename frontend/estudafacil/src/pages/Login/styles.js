@@ -38,6 +38,10 @@ export const formDiv = styled.div`
     cursor: pointer;
   }
 
+  button:hover {
+    background: linear-gradient(45deg, #b805ff, #8976fd);
+  }
+
   .or-div {
     display: flex;
     align-items: center;
@@ -53,5 +57,16 @@ export const formDiv = styled.div`
     max-width: 130px;
     width: 100%;
     border-bottom: 1px solid #8976fd;
+  }
+
+  .forgot-password {
+    margin-top: 8px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #8976fd;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
   }
 `;

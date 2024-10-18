@@ -2,6 +2,7 @@ import banner from "../../components/assets/images/banner.png";
 import school from "../../components/assets/images/school_person.png";
 import university from "../../components/assets/images/university_person.png";
 import business from "../../components/assets/images/business_person.png";
+import correct from "../../components/assets/images/correct_icon.png";
 import * as S from "./styles";
 
 export const Home = () => {
@@ -15,29 +16,75 @@ export const Home = () => {
             <div className="plan-item">
               <h4>Enem e Vestibular</h4>
               <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
                 Acesso a correção de redação com corretores reais e com
                 Inteligência artificial
               </li>
-              <li>Acesso ilimitado às aulas gravadas e ao vivo</li>
-              <li>Acesso aos simulados inteligentes</li>
-              <button className="btn-plan">CONFIRA OS PLANOS</button>
+              <li>
+                {" "}
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
+                Acesso ilimitado às aulas gravadas e ao vivo
+              </li>
+              <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
+                Acesso aos simulados inteligentes
+              </li>
+              <button className="btn-plan">Conheça o Plano</button>
               <img className="first-img" src={school} alt="Estudante" />
             </div>
             <div className="plan-item">
               <h4>Ensino Superior</h4>
-              <li>Cursos que contam como horas complementares</li>
-              <button className="btn-plan">CONFIRA OS PLANOS</button>
+              <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
+                Cursos que contam como horas complementares
+              </li>
+              <button className="btn-plan">Conheça o Plano</button>
               <img className="second-img" src={university} alt="Estudante" />
             </div>
             <div className="plan-item">
               <h4>Concurso</h4>
               <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
                 Acesso a correção de redação com corretores reais e com
                 Inteligência artificial
               </li>
-              <li>Acesso ilimitado às aulas gravadas e ao vivo</li>
-              <li>Acesso aos simulados inteligentes</li>
-              <button className="btn-plan">CONFIRA OS PLANOS</button>
+              <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
+                Acesso ilimitado às aulas gravadas e ao vivo
+              </li>
+              <li>
+                <img
+                  className="correct-icon"
+                  src={correct}
+                  alt="Ícone de certo"
+                />
+                Acesso aos simulados inteligentes
+              </li>
+              <button className="btn-plan">Conheça o Plano</button>
               <img className="third-img" src={business} alt="Estudante" />
             </div>
           </div>

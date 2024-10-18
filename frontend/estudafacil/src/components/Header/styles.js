@@ -23,10 +23,26 @@ export const headerContainer = styled.div`
   .link-item {
     text-decoration: none;
     margin: 0 16px;
+    color: #332c5c;
+    position: relative;
+    display: inline-block;
   }
 
-  .inactive-link {
-    color: #332c5c;
+  .link-item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #8976fd;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .link-item:hover::after {
+    transform: scaleX(1);
   }
 
   .active-link {

@@ -53,13 +53,17 @@ export const planSection = styled.div`
     background-color: #b805ff;
     color: #fff;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
     max-width: 120px;
     width: 100%;
     height: 40px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
+  }
+
+  .btn-plan:hover {
+    background-color: #bf1cff;
   }
 
   .first-img {
@@ -87,5 +91,11 @@ export const planSection = styled.div`
     height: 200px;
     max-width: 112.86px;
     width: 100%;
+  }
+
+  .correct-icon {
+    max-width: 18px;
+    width: 100%;
+    height: 18px;
   }
 `;

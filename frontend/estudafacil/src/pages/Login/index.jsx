@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as S from "./styles";
 
 const Login = () => {
@@ -7,6 +8,9 @@ const Login = () => {
         <h3>Possui cadastro?</h3>
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Senha" />
+        <Link className="forgot-password" to={"/"}>
+          Esqueceu sua senha?
+        </Link>
         <button>Entrar</button>
         <div className="or-div">
           <div className="line"></div>
