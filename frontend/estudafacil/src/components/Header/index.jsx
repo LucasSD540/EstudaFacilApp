@@ -29,14 +29,6 @@ const Header = () => {
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/about"
-          >
-            Sobre nós
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "active-link link-item" : "inactive-link link-item"
-            }
             to="/services"
           >
             Serviços
@@ -45,17 +37,25 @@ const Header = () => {
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/social"
+            to="/plans"
           >
-            Redes Sociais
+            Planos
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/plans"
+            to="/doubts"
           >
-            Planos
+            Perguntas
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "active-link link-item" : "inactive-link link-item"
+            }
+            to="/about"
+          >
+            Sobre Nós
           </NavLink>
         </nav>
         <Link className="logoStyle" to="/login">
