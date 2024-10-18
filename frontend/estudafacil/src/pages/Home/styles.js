@@ -1,7 +1,44 @@
 import styled from "styled-components";
 
+export const bannerContainer = styled.div`
+  position: relative;
+  display: flex;
+
+  .graduating_person-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 600px;
+    width: 100%;
+    height: 480px;
+  }
+
+  div {
+    width: 50%;
+    height: 540px;
+    background-color: #b805ff;
+    color: #fff;
+
+    .text-title {
+      font-size: 36px;
+      text-align: center;
+      margin: 48px 0 24px 0;
+
+      span {
+        color: #dcdc28;
+      }
+    }
+
+    .text-subTitle {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+`;
+
 export const bannerImg = styled.img`
-  width: 100%;
+  width: 50%;
   height: 540px;
 `;
 
