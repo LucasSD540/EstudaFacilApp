@@ -29,31 +29,31 @@ const Header = () => {
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/services"
+            to="/enem"
           >
-            Serviços
+            Enem e Vestibular
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/plans"
+            to="/superior"
           >
-            Planos
+            Ensino Superior
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/doubts"
+            to="/concurso"
           >
-            Perguntas
+            Concurso
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive ? "active-link link-item" : "inactive-link link-item"
             }
-            to="/about"
+            to="/sobre"
           >
             Sobre
           </NavLink>
