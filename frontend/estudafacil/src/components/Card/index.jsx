@@ -1,12 +1,18 @@
 import * as S from "./styles";
 
-const Card = () => {
+const Card = ({ planName, backgroundColor, marginStyle, shadowColor }) => {
   return (
-    <S.planDiv>
-      <S.planInfoDiv>
-        <h4>Plano Base</h4>
-        <p>R% 0,00</p>
-      </S.planInfoDiv>
+    <S.planDiv
+      backgroundColor={backgroundColor}
+      marginStyle={marginStyle}
+      shadowColor={shadowColor}
+    >
+      <div className="plan-name first">
+        <p>{planName}</p>
+      </div>
+      <div className="plan-name second">
+        <p>INSCREVA-SE</p>
+      </div>
     </S.planDiv>
   );
 };

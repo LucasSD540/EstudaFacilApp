@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const mainDiv = styled.div`
   width: 100%;
-  background-color: #8142B1;
   padding: 32px;
   }
 `;
