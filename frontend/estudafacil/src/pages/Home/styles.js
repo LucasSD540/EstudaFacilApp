@@ -61,7 +61,7 @@ export const planSection = styled.div`
     max-width: 300px;
     width: 100%;
     box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
+    border-radius: 39px;
     padding: 32px;
   }
 
@@ -72,10 +72,9 @@ export const planSection = styled.div`
   }
 
   h4 {
-    color: #b805ff;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 24px;
+    margin-top: 192px;
   }
 
   li {
@@ -91,7 +90,7 @@ export const planSection = styled.div`
     color: #fff;
     font-weight: bold;
     font-size: 12px;
-    max-width: 120px;
+    max-width: 140px;
     width: 100%;
     height: 40px;
     border: none;
@@ -103,36 +102,11 @@ export const planSection = styled.div`
     background-color: #bf1cff;
   }
 
-  .first-img {
+  .plan-image {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    max-width: 300px;
+    width: 100%;
     height: 200px;
-    max-width: 77.34px;
-    width: 100%;
-  }
-
-  .second-img {
-    position: absolute;
-    bottom: 0;
-    left: 8px;
-    height: 200px;
-    max-width: 77.34px;
-    width: 100%;
-  }
-
-  .third-img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 200px;
-    max-width: 112.86px;
-    width: 100%;
-  }
-
-  .correct-icon {
-    max-width: 18px;
-    width: 100%;
-    height: 18px;
   }
 `;

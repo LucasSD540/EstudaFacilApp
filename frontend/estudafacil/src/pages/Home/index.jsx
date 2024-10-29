@@ -1,9 +1,8 @@
 import woman from "../../components/assets/images/woman.png";
 import banner from "../../components/assets/images/banner.png";
-import school from "../../components/assets/images/school_person.png";
-import university from "../../components/assets/images/university_person.png";
-import business from "../../components/assets/images/business_person.png";
-import correct from "../../components/assets/images/correct_icon.png";
+import enem from "../../components/assets/images/enem_image.png";
+import superior from "../../components/assets/images/superior_image.png";
+import concurso from "../../components/assets/images/concurso_image.png";
 import * as S from "./styles";
 
 export const Home = () => {
@@ -30,78 +29,19 @@ export const Home = () => {
           <h3>Planos</h3>
           <div className="plans-container">
             <div className="plan-item">
+              <img src={enem} alt="" className="plan-image" />
               <h4>Enem e Vestibular</h4>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso a correção de redação com corretores reais e com
-                Inteligência artificial
-              </li>
-              <li>
-                {" "}
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso ilimitado às aulas gravadas e ao vivo
-              </li>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso aos simulados inteligentes
-              </li>
-              <button className="btn-plan">Conheça o Plano</button>
-              <img className="first-img" src={school} alt="Estudante" />
+              <button className="btn-plan">Conheça os Planos</button>
             </div>
             <div className="plan-item">
+              <img src={superior} alt="" className="plan-image" />
               <h4>Ensino Superior</h4>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Cursos que contam como horas complementares
-              </li>
-              <button className="btn-plan">Conheça o Plano</button>
-              <img className="second-img" src={university} alt="Estudante" />
+              <button className="btn-plan">Conheça os Planos</button>
             </div>
             <div className="plan-item">
+              <img src={concurso} alt="" className="plan-image" />
               <h4>Concurso</h4>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso a correção de redação com corretores reais e com
-                Inteligência artificial
-              </li>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso ilimitado às aulas gravadas e ao vivo
-              </li>
-              <li>
-                <img
-                  className="correct-icon"
-                  src={correct}
-                  alt="Ícone de certo"
-                />
-                Acesso aos simulados inteligentes
-              </li>
-              <button className="btn-plan">Conheça o Plano</button>
-              <img className="third-img" src={business} alt="Estudante" />
+              <button className="btn-plan">Conheça os Planos</button>
             </div>
           </div>
         </S.planSection>
