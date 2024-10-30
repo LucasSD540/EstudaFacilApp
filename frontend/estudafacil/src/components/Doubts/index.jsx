@@ -11,22 +11,20 @@ const Doubt = () => {
 
   return (
     <S.mainDiv>
-      <S.doubtDiv onClick={openCloseDoubt}>
+      <S.doubtDiv isOpen={isOpen} onClick={openCloseDoubt}>
         <div className="title">
           <h4 className="doubt-title">Dúvida</h4>
           <img className="down-icon" src={down} alt="Expandir" />
         </div>
       </S.doubtDiv>
       {isOpen ? (
-        <>
-          <div className="response">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-              velit saepe cumque unde distinctio recusandae voluptatem placeat
-              asperiores vitae veritatis.
-            </p>
-          </div>
-        </>
+        <div className="response">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
+            velit saepe cumque unde distinctio recusandae voluptatem placeat
+            asperiores vitae veritatis.
+          </p>
+        </div>
       ) : (
         <></>
       )}
