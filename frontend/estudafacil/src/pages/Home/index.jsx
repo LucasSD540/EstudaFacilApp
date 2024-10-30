@@ -4,6 +4,7 @@ import enem from "../../components/assets/images/enem_image.png";
 import superior from "../../components/assets/images/superior_image.png";
 import concurso from "../../components/assets/images/concurso_image.png";
 import * as S from "./styles";
+import Doubt from "../../components/Doubts";
 
 export const Home = () => {
   return (
@@ -45,6 +46,13 @@ export const Home = () => {
             </div>
           </div>
         </S.planSection>
+        <S.doubtsContainer>
+          <h3 className="doubt-section-title">Dúvidas Frequentes</h3>
+          <Doubt />
+          <Doubt />
+          <Doubt />
+          <Doubt />
+        </S.doubtsContainer>
       </div>
     </div>
   );

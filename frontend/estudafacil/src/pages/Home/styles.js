@@ -110,3 +110,9 @@ export const planSection = styled.div`
     height: 200px;
   }
 `;
+
+export const doubtsContainer = styled.div`
+  .doubt-section-title {
+    font-size: 32px;
+  }
+`;
