@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const formDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 540px;
+  height: 580px;
   max-width: 360px;
   width: 100%;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
@@ -68,5 +68,19 @@ export const formDiv = styled.div`
 
   .forgot-password:hover {
     text-decoration: underline;
+  }
+
+  .radio-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .radio-input {
+    height: 12px;
+  }
+
+  .radio-label {
+    font-size: 12px;
+    margin-left: 12px;
   }
 `;
