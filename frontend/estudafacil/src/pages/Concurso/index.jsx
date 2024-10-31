@@ -1,11 +1,11 @@
 import Card from "../../components/Card";
 import * as S from "./styles";
 
-const Superior = () => {
+const Concurso = () => {
   return (
     <S.mainDiv>
       <S.sectionDiv className="container">
-        <h3>Planos Ensino Superior</h3>
+        <h3>Planos Enem e Vestibular</h3>
         <div className="card-div">
           <Card planName="FREE" marginStyle="32px" />
           <Card
@@ -20,4 +20,4 @@ const Superior = () => {
   );
 };
 
-export default Superior;
+export default Concurso;
