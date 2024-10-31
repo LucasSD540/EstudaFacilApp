@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import * as S from "./styles";
@@ -8,8 +9,24 @@ const Login = () => {
     console.log("Enviado");
   };
 
-  const handleSubmit = () => {
-    console.log("Verificado");
+  const handleSubmit = async (values) => {
+    const { fullName, email, password, studyLevel } = values;
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/user/create/",
+        {
+          fullName,
+          email,
+          password,
+          studyLevel,
+        }
+      );
+
+      console.log("Resposta", response.data);
+    } catch (error) {
+      console.log(`Deu erro ${error}`);
+    }
   };
 
   const validationSchemaLogin = Yup.object({
