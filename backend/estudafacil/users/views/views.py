@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from ..serializers import UserSerializer
@@ -7,6 +8,7 @@ from ..models import User
 class UserListCreateView(generics.ListCreateAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
+  authentication_classes = [AllowAny]
 
   def perform_create(self, serializer):
     serializer.save()
@@ -14,10 +16,12 @@ class UserListCreateView(generics.ListCreateAPIView):
 class UserListView(generics.ListAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
+  authentication_classes = [IsAuthenticated]
 
 class UserUpdateView(generics.UpdateAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
+  authentication_classes = [IsAuthenticated]
 
   def update(self, request, *args, **kwargs):
     self.object = self.get_object()
@@ -35,3 +39,4 @@ class UserUpdateView(generics.UpdateAPIView):
 class UserDeleteView(generics.DestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
+  authentication_classes = [IsAuthenticated]
