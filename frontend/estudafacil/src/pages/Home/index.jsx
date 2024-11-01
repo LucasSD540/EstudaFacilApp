@@ -49,9 +49,6 @@ export const Home = () => {
         <S.doubtsContainer>
           <h3 className="doubt-section-title">Dúvidas Frequentes</h3>
           <Doubt />
-          <Doubt />
-          <Doubt />
-          <Doubt />
         </S.doubtsContainer>
       </div>
     </div>

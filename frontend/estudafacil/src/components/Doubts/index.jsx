@@ -1,33 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import down from "../assets/images/down_icon.png";
+import Axios from "axios";
 import * as S from "./styles";
 
 const Doubt = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenIndex, setIsOpenIndex] = useState(null);
+  const [data, setData] = useState([]);
 
-  const openCloseDoubt = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get(
+          "http://127.0.0.1:8000/api/doubt/list/"
+        );
+        setData(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const toggleDoubt = (index) => {
+    setIsOpenIndex(isOpenIndex === index ? null : index);
   };
 
   return (
     <>
-      <S.doubtDiv isOpen={isOpen} onClick={openCloseDoubt}>
-        <div>
-          <div className="flex-div">
-            <h4 className="doubt-title">Dúvida</h4>
-            <img className="down-icon" src={down} alt="Expandir" />
+      {data.map((doubt, index) => (
+        <S.doubtDiv
+          key={doubt.id}
+          isOpen={isOpenIndex === index}
+          onClick={() => toggleDoubt(index)}
+        >
+          <div>
+            <div className="flex-div">
+              <h4 className="doubt-title">{doubt.title}</h4>
+              <img className="down-icon" src={down} alt="Expandir" />
+            </div>
+            {isOpenIndex === index && (
+              <p className="doubt-content">{doubt.text_content}</p>
+            )}
           </div>
-          {isOpen ? (
-            <p className="doubt-content">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-              velit saepe cumque unde distinctio recusandae voluptatem placeat
-              asperiores vitae veritatis.
-            </p>
-          ) : (
-            <></>
-          )}
-        </div>
-      </S.doubtDiv>
+        </S.doubtDiv>
+      ))}
     </>
   );
 };
