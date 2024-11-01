@@ -5,6 +5,8 @@ import About from "./pages/About";
 import Enem from "./pages/Enem";
 import Superior from "./pages/Superior";
 import Concurso from "./pages/Concurso";
+import EnemCourse from "./pages/Enem_course";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const Routing = () => {
   return (
@@ -15,6 +17,14 @@ const Routing = () => {
       <Route path="/enem" element={<Enem />} />
       <Route path="/superior" element={<Superior />} />
       <Route path="/concurso" element={<Concurso />} />
+      <Route
+        path="/enem-course"
+        element={
+          <ProtectedRoute>
+            <EnemCourse />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };

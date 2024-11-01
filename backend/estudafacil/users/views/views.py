@@ -8,7 +8,7 @@ from ..models import User
 class UserListCreateView(generics.ListCreateAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  authentication_classes = [AllowAny]
+  permission_classes = [AllowAny]
 
   def perform_create(self, serializer):
     serializer.save()
@@ -16,12 +16,12 @@ class UserListCreateView(generics.ListCreateAPIView):
 class UserListView(generics.ListAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  authentication_classes = [IsAuthenticated]
+  permission_classes = [IsAuthenticated]
 
 class UserUpdateView(generics.UpdateAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  authentication_classes = [IsAuthenticated]
+  permission_classes = [IsAuthenticated]
 
   def update(self, request, *args, **kwargs):
     self.object = self.get_object()
@@ -39,4 +39,4 @@ class UserUpdateView(generics.UpdateAPIView):
 class UserDeleteView(generics.DestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  authentication_classes = [IsAuthenticated]
+  permission_classes = [IsAuthenticated]

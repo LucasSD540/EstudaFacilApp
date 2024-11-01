@@ -1,31 +1,100 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 import * as S from "./styles";
+import { useState } from "react";
 
 const Login = () => {
-  const handleLogin = () => {
-    console.log("Enviado");
-  };
+  const navigate = useNavigate();
+  const [isInputError, setIsInputError] = useState(false);
+  const [isEmailError, setIsEmailError] = useState(false);
 
-  const handleSubmit = async (values) => {
-    const { fullName, email, password, studyLevel } = values;
+  const handleLogin = async (values, { resetForm }) => {
+    const { email, password } = values;
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/user/create/",
+        "http://127.0.0.1:8000/api/user/token/",
         {
-          fullName,
           email,
           password,
-          studyLevel,
         }
       );
 
-      console.log("Resposta", response.data);
+      const token = response.data.access;
+
+      if (token) {
+        localStorage.setItem("jwtToken", response.data);
+        navigate("/enem-course");
+      }
+
+      return response.data;
     } catch (error) {
-      console.log(`Deu erro ${error}`);
+      if (error.response && error.response.status === 401) {
+        setIsInputError(true);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `E-mail ou senha incorretos`,
+        });
+        resetForm();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Erro ao fazer login: ${error.message}`,
+        });
+        resetForm();
+      }
+    }
+  };
+
+  const handleSubmit = async (values, { resetForm }) => {
+    const { fullName, email, password, studyLevel } = values;
+
+    try {
+      await axios.post("http://127.0.0.1:8000/api/user/create/", {
+        fullName,
+        email,
+        password,
+        studyLevel,
+      });
+
+      Swal.fire({
+        title: "Sucesso!",
+        text: "Usuário cadastrado com sucesso.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      resetForm();
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        if (error.response.data.email) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Já existe um usuário cadastrado com esse e-mail!",
+          });
+          setIsEmailError(true);
+          resetForm();
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Erro ao fazer cadastro: ${error.message}`,
+          });
+          resetForm();
+        }
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Erro ao fazer cadastro: ${error.message}`,
+        });
+        resetForm();
+      }
     }
   };
 
@@ -37,7 +106,11 @@ const Login = () => {
   });
 
   const validationSchemaRegister = Yup.object({
-    fullName: Yup.string().required("Campo obrigatório"),
+    fullName: Yup.string()
+      .required("Campo obrigatório")
+      .test("is-full-name", "O nome completo deve estar completo", (value) => {
+        return value && value.split(" ").length >= 2;
+      }),
     email: Yup.string()
       .email("Digite um email válido")
       .required("Campo obrigatório"),
@@ -63,6 +136,8 @@ const Login = () => {
                 name="email"
                 placeholder="E-mail"
                 as={S.inputStyle}
+                className={isInputError ? "inputError" : ""}
+                autoComplete="off"
               />
               <ErrorMessage
                 name="email"
@@ -76,6 +151,8 @@ const Login = () => {
                 name="password"
                 placeholder="Senha"
                 as={S.inputStyle}
+                className={isInputError ? "inputError" : ""}
+                autoComplete="new-password"
               />
               <ErrorMessage
                 name="password"
@@ -113,6 +190,7 @@ const Login = () => {
                 name="fullName"
                 placeholder="Nome completo"
                 as={S.inputStyle}
+                autoComplete="off"
               />
               <ErrorMessage
                 name="fullName"
@@ -126,6 +204,8 @@ const Login = () => {
                 name="email"
                 placeholder="E-mail"
                 as={S.inputStyle}
+                autoComplete="off"
+                className={isEmailError ? "inputError" : ""}
               />
               <ErrorMessage
                 name="email"
@@ -139,6 +219,7 @@ const Login = () => {
                 name="password"
                 placeholder="Senha"
                 as={S.inputStyle}
+                autoComplete="new-password"
               />
               <ErrorMessage
                 name="password"
@@ -152,6 +233,7 @@ const Login = () => {
                 name="confirmPassword"
                 placeholder="Confirmar senha"
                 as={S.inputStyle}
+                autoComplete="new-password"
               />
               <ErrorMessage
                 name="confirmPassword"

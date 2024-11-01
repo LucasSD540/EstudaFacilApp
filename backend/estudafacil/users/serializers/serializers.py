@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     model = User
     fields = ['id', 'fullName', 'email', 'password', 'profilePicture', 'created_at', 'study_level']
 
+
   def create(self, validated_data):
     user = User(**validated_data)
     user.set_password(validated_data['password'])

@@ -78,6 +78,10 @@ export const formDiv = styled.div`
   .radio-input-div {
     margin-top: 24px;
   }
+
+  .inputError {
+    border: 1px solid red;
+  }
 `;
 
 export const inputStyle = styled.input`
