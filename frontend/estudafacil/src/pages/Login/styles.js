@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const formDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 540px;
+  height: 720px;
   max-width: 360px;
   width: 100%;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
@@ -14,15 +14,6 @@ export const formDiv = styled.div`
   h3 {
     text-align: center;
     color: #8976fd;
-  }
-
-  input {
-    padding-left: 16px;
-    margin-top: 16px;
-    height: 30px;
-    border-radius: 30px;
-    border: 1px solid #8976fd;
-    outline: none;
   }
 
   button {
@@ -60,7 +51,6 @@ export const formDiv = styled.div`
   }
 
   .forgot-password {
-    margin-top: 8px;
     font-size: 12px;
     text-decoration: none;
     color: #8976fd;
@@ -69,4 +59,33 @@ export const formDiv = styled.div`
   .forgot-password:hover {
     text-decoration: underline;
   }
+
+  .radio-input {
+    height: 12px;
+  }
+
+  .radio-label {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .error-message {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+  }
+
+  .radio-input-div {
+    margin-top: 24px;
+  }
+`;
+
+export const inputStyle = styled.input`
+  width: 100%;
+  padding-left: 16px;
+  margin: 16px 0 8px 0;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #8976fd;
+  outline: none;
 `;

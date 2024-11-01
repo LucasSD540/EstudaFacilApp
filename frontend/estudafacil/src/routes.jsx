@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Enem from "./pages/Enem";
 import Superior from "./pages/Superior";
+import Concurso from "./pages/Concurso";
 
 const Routing = () => {
   return (
@@ -13,6 +14,7 @@ const Routing = () => {
       <Route path="/sobre" element={<About />} />
       <Route path="/enem" element={<Enem />} />
       <Route path="/superior" element={<Superior />} />
+      <Route path="/concurso" element={<Concurso />} />
     </Routes>
   );
 };
