@@ -12,19 +12,23 @@ export const aboutSection = styled.div`
 `;
 
 export const contentContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   img {
-    max-width: 440px;
     width: 100%;
-    height: 400px;
   }
 
-  p {
-    max-width: 400px;
-    width: 100%;
-    font-size: 18px;
-    line-height: 24px;
+  .book-image {
+    max-width: 72px;
+    height: 48px;
+  }
+
+  .text-div {
+    padding: 48px 48px 0 32px;
+  }
+
+  .text-div-item {
+    margin-bottom: 48px;
   }
 `;
