@@ -184,7 +184,10 @@ const Login = () => {
                 className="error-message"
               />
             </div>
-            <Link className="forgot-password" to={"/"}>
+            <Link
+              className="forgot-password"
+              to={"http://localhost:8000/api/estudafacilapp/send-email/"}
+            >
               Esqueceu sua senha?
             </Link>
             <button type="submit">Entrar</button>
