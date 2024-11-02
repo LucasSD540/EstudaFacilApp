@@ -6,6 +6,8 @@ import Enem from "./pages/Enem";
 import Superior from "./pages/Superior";
 import Concurso from "./pages/Concurso";
 import EnemCourse from "./pages/Enem_course";
+import SuperiorCourse from "./pages/Superior_course";
+import ConcursoCourse from "./pages/Concurso_course";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const Routing = () => {
@@ -22,6 +24,22 @@ const Routing = () => {
         element={
           <ProtectedRoute>
             <EnemCourse />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/superior-course"
+        element={
+          <ProtectedRoute>
+            <SuperiorCourse />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/concurso-course"
+        element={
+          <ProtectedRoute>
+            <ConcursoCourse />
           </ProtectedRoute>
         }
       />

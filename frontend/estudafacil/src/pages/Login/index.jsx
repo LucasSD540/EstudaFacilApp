@@ -26,8 +26,32 @@ const Login = () => {
       const token = response.data.access;
 
       if (token) {
-        localStorage.setItem("jwtToken", response.data);
-        navigate("/enem-course");
+        localStorage.setItem("jwtToken", token);
+
+        const userResponse = await axios.get(
+          "http://127.0.0.1:8000/api/user/me/",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const { study_level } = userResponse.data;
+
+        if (study_level === "enem") {
+          navigate("/enem-course");
+        } else if (study_level === "superior") {
+          navigate("/superior-course");
+        } else if (study_level === "concurso") {
+          navigate("/concurso-course");
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "Aviso",
+            text: "Nível de estudo desconhecido",
+          });
+        }
       }
 
       return response.data;
@@ -52,14 +76,14 @@ const Login = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    const { fullName, email, password, studyLevel } = values;
+    const { fullName, email, password, study_level } = values;
 
     try {
       await axios.post("http://127.0.0.1:8000/api/user/create/", {
         fullName,
         email,
         password,
-        studyLevel,
+        study_level,
       });
 
       Swal.fire({
@@ -247,7 +271,7 @@ const Login = () => {
                   className="radio-input"
                   type="radio"
                   value="enem"
-                  name="studyLevel"
+                  name="study_level"
                 />
                 <label className="radio-label" htmlFor="enem">
                   Enem e Vestibular
@@ -258,7 +282,7 @@ const Login = () => {
                   className="radio-input"
                   type="radio"
                   value="superior"
-                  name="studyLevel"
+                  name="study_level"
                 />
                 <label className="radio-label" htmlFor="superior">
                   Ensino superior
@@ -269,7 +293,7 @@ const Login = () => {
                   className="radio-input"
                   type="radio"
                   value="concurso"
-                  name="studyLevel"
+                  name="study_level"
                 />
                 <label className="radio-label" htmlFor="concurso">
                   Concurso

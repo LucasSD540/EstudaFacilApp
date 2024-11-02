@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const EnemCourse = () => {
+const ConcursoCourse = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -10,10 +10,10 @@ const EnemCourse = () => {
 
   return (
     <div>
-      <h1>Enem autenticado!</h1>
+      <h1>Concurso autenticado!</h1>
       <button onClick={() => handleLogout()}>Logout</button>
     </div>
   );
 };
 
-export default EnemCourse;
+export default ConcursoCourse;
