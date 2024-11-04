@@ -37,4 +37,10 @@ export const planDiv = styled.div`
     bottom: 0;
     right: 0;
   }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
 `;

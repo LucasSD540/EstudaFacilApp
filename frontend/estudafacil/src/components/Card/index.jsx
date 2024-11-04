@@ -1,6 +1,18 @@
+import { Link } from "react-router-dom";
 import * as S from "./styles";
 
-const Card = ({ planName, backgroundColor, marginStyle, shadowColor }) => {
+const Card = ({
+  planName,
+  backgroundColor,
+  marginStyle,
+  shadowColor,
+  studyLevelLink,
+  studyLevel,
+}) => {
+  const getStudyLevel = () => {
+    localStorage.setItem("studyLevel", studyLevel);
+  };
+
   return (
     <S.planDiv
       backgroundColor={backgroundColor}
@@ -11,7 +23,9 @@ const Card = ({ planName, backgroundColor, marginStyle, shadowColor }) => {
         <p>{planName}</p>
       </div>
       <div className="plan-name second">
-        <p>INSCREVA-SE</p>
+        <Link to={studyLevelLink} onClick={() => getStudyLevel()}>
+          INSCREVA-SE
+        </Link>
       </div>
     </S.planDiv>
   );

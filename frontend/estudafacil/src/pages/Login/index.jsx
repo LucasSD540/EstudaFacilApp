@@ -4,12 +4,13 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 import * as S from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const [isInputError, setIsInputError] = useState(false);
   const [isEmailError, setIsEmailError] = useState(false);
+  const [initialStudyLevel, setInitialStudyLevel] = useState("");
 
   const handleLogin = async (values, { resetForm }) => {
     const { email, password } = values;
@@ -144,6 +145,11 @@ const Login = () => {
       .required("Confirmação de senha é obrigatória"),
   });
 
+  useEffect(() => {
+    const storedStudyLevel = localStorage.getItem("studyLevel");
+    setInitialStudyLevel(storedStudyLevel || "enem");
+  }, []);
+
   return (
     <div className="container">
       <S.formDiv>
@@ -199,113 +205,115 @@ const Login = () => {
           <div className="line"></div>
         </div>
         <h3>Cadastre-se</h3>
-        <Formik
-          initialValues={{
-            fullName: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            studyLevel: "enem",
-          }}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchemaRegister}
-        >
-          <Form>
-            <div>
-              <Field
-                type="text"
-                name="fullName"
-                placeholder="Nome completo"
-                as={S.inputStyle}
-                autoComplete="off"
-              />
-              <ErrorMessage
-                name="fullName"
-                component="div"
-                className="error-message"
-              />
-            </div>
-            <div>
-              <Field
-                type="email"
-                name="email"
-                placeholder="E-mail"
-                as={S.inputStyle}
-                autoComplete="off"
-                className={isEmailError ? "inputError" : ""}
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="error-message"
-              />
-            </div>
-            <div>
-              <Field
-                type="password"
-                name="password"
-                placeholder="Senha"
-                as={S.inputStyle}
-                autoComplete="new-password"
-              />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error-message"
-              />
-            </div>
-            <div>
-              <Field
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirmar senha"
-                as={S.inputStyle}
-                autoComplete="new-password"
-              />
-              <ErrorMessage
-                name="confirmPassword"
-                component="div"
-                className="error-message"
-              />
-            </div>
-            <div className="radio-input-div">
+        {initialStudyLevel && (
+          <Formik
+            initialValues={{
+              fullName: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+              study_level: initialStudyLevel,
+            }}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchemaRegister}
+          >
+            <Form>
               <div>
                 <Field
-                  className="radio-input"
-                  type="radio"
-                  value="enem"
-                  name="study_level"
+                  type="text"
+                  name="fullName"
+                  placeholder="Nome completo"
+                  as={S.inputStyle}
+                  autoComplete="off"
                 />
-                <label className="radio-label" htmlFor="enem">
-                  Enem e Vestibular
-                </label>
+                <ErrorMessage
+                  name="fullName"
+                  component="div"
+                  className="error-message"
+                />
               </div>
               <div>
                 <Field
-                  className="radio-input"
-                  type="radio"
-                  value="superior"
-                  name="study_level"
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  as={S.inputStyle}
+                  autoComplete="off"
+                  className={isEmailError ? "inputError" : ""}
                 />
-                <label className="radio-label" htmlFor="superior">
-                  Ensino superior
-                </label>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="error-message"
+                />
               </div>
               <div>
                 <Field
-                  className="radio-input"
-                  type="radio"
-                  value="concurso"
-                  name="study_level"
+                  type="password"
+                  name="password"
+                  placeholder="Senha"
+                  as={S.inputStyle}
+                  autoComplete="new-password"
                 />
-                <label className="radio-label" htmlFor="concurso">
-                  Concurso
-                </label>
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error-message"
+                />
               </div>
-            </div>
-            <button type="submit">Cadastrar</button>
-          </Form>
-        </Formik>
+              <div>
+                <Field
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirmar senha"
+                  as={S.inputStyle}
+                  autoComplete="new-password"
+                />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
+              <div className="radio-input-div">
+                <div>
+                  <Field
+                    className="radio-input"
+                    type="radio"
+                    value="enem"
+                    name="study_level"
+                  />
+                  <label className="radio-label" htmlFor="enem">
+                    Enem e Vestibular
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    className="radio-input"
+                    type="radio"
+                    value="superior"
+                    name="study_level"
+                  />
+                  <label className="radio-label" htmlFor="superior">
+                    Ensino superior
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    className="radio-input"
+                    type="radio"
+                    value="concurso"
+                    name="study_level"
+                  />
+                  <label className="radio-label" htmlFor="concurso">
+                    Concurso
+                  </label>
+                </div>
+              </div>
+              <button type="submit">Cadastrar</button>
+            </Form>
+          </Formik>
+        )}
       </S.formDiv>
     </div>
   );
