@@ -5,6 +5,7 @@ const SuperiorCourse = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("studyLevelAuthenticated");
     navigate("/");
   };
 

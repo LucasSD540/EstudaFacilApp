@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useStudyLevel } from "../../contexts/StudyLevelContext";
 
 const ConcursoCourse = () => {
+  const { removeStudyLevel } = useStudyLevel();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
+    removeStudyLevel();
     navigate("/");
   };
 

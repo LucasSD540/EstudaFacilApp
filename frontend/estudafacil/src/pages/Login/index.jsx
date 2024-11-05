@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useStudyLevel } from "../../contexts/StudyLevelContext";
 import axios from "axios";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -11,6 +12,7 @@ const Login = () => {
   const [isInputError, setIsInputError] = useState(false);
   const [isEmailError, setIsEmailError] = useState(false);
   const [initialStudyLevel, setInitialStudyLevel] = useState("");
+  const { updateStudyLevel } = useStudyLevel();
 
   const handleLogin = async (values, { resetForm }) => {
     const { email, password } = values;
@@ -42,10 +44,13 @@ const Login = () => {
 
         if (study_level === "enem") {
           navigate("/enem-course");
+          updateStudyLevel("enem");
         } else if (study_level === "superior") {
           navigate("/superior-course");
+          updateStudyLevel("superior");
         } else if (study_level === "concurso") {
           navigate("/concurso-course");
+          updateStudyLevel("concurso");
         } else {
           Swal.fire({
             icon: "warning",

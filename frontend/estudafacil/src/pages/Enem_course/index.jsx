@@ -5,6 +5,7 @@ const EnemCourse = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("studyLevelAuthenticated");
     navigate("/");
   };
 
