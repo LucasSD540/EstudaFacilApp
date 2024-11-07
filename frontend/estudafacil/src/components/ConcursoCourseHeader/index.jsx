@@ -1,13 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import Axios from "axios";
+import { useStudyLevel } from "../../contexts/StudyLevelContext";
 import logo from "../assets/images/logo.png";
 import profile from "../assets/images/profile.png";
 import notification from "../assets/images/notification_icon.png";
-import * as S from "../Header/styles";
+import * as S from "./styles";
 import { useState, useEffect } from "react";
 
 const ConcursoHeader = () => {
+  const { removeStudyLevel } = useStudyLevel();
   const [data, setData] = useState("");
+  const [popup, setPopup] = useState(false);
 
   const token = localStorage.getItem("jwtToken");
 
@@ -34,6 +37,19 @@ const ConcursoHeader = () => {
     const nameParts = fullName.split(" ");
     const firstTwoNames = nameParts.slice(0, 2).join(" ");
     return firstTwoNames;
+  };
+
+  const openPopup = () => {
+    setPopup(true);
+  };
+
+  const closePopup = () => {
+    setPopup(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwtToken");
+    removeStudyLevel();
   };
 
   return (
@@ -65,17 +81,33 @@ const ConcursoHeader = () => {
           Meus concursos
         </NavLink>
       </nav>
-      <Link className="logoStyle" to="/login">
-        <S.loginDiv>
+      <div className="logoStyle">
+        <S.userDiv>
           <img
             style={{ marginRight: "24px", height: "36px" }}
             src={notification}
             alt="Ícone de notificação"
           />
-          <img src={profile} alt="Ícone de usuário" />
-          <p>{data.fullName ? getFirstTwoNames(data.fullName) : ""}</p>
-        </S.loginDiv>
-      </Link>
+          <div className="user-info-div" onMouseEnter={() => openPopup()}>
+            <img src={profile} alt="Ícone de usuário" />
+            <p>{data.fullName ? getFirstTwoNames(data.fullName) : ""}</p>
+            {popup && (
+              <div className="user-popup" onMouseLeave={() => closePopup()}>
+                <Link className="btn-link" to="/profile">
+                  Editar perfil
+                </Link>
+                <Link
+                  className="btn-link"
+                  onClick={() => handleLogout()}
+                  to="/"
+                >
+                  Encerrar sessão
+                </Link>
+              </div>
+            )}
+          </div>
+        </S.userDiv>
+      </div>
     </S.headerContainer>
   );
 };

@@ -1,14 +1,28 @@
 import styled from "styled-components";
 
 export const footerDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
   width: 100%;
-  background-color: #b805ff;
+  border-top: 1px solid #000;
 
-  p {
-    color: #fff;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .links-div {
+    .link-item {
+      color: #000;
+      text-decoration: none;
+      margin-right: 32px;
+    }
+
+    .link-item:hover {
+      text-decoration: underline;
+    }
   }
 `;

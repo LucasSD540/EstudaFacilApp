@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -9,8 +11,27 @@ import EnemCourse from "./pages/Enem_course";
 import SuperiorCourse from "./pages/Superior_course";
 import ConcursoCourse from "./pages/Concurso_course";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useStudyLevel } from "./contexts/StudyLevelContext";
 
 const Routing = () => {
+  const { removeStudyLevel } = useStudyLevel();
+  const location = useLocation();
+
+  useEffect(() => {
+    const urlsParaRemoverStudyLevel = [
+      "/",
+      "/sobre",
+      "/login",
+      "/enem",
+      "/superior",
+      "/concurso",
+    ];
+
+    if (urlsParaRemoverStudyLevel.includes(location.pathname)) {
+      removeStudyLevel();
+    }
+  }, [location.pathname, removeStudyLevel]);
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -22,7 +43,7 @@ const Routing = () => {
       <Route
         path="/enem-course"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute requiredStudyLevel="enem">
             <EnemCourse />
           </ProtectedRoute>
         }
@@ -30,7 +51,7 @@ const Routing = () => {
       <Route
         path="/superior-course"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute requiredStudyLevel="superior">
             <SuperiorCourse />
           </ProtectedRoute>
         }
@@ -38,7 +59,7 @@ const Routing = () => {
       <Route
         path="/concurso-course"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute requiredStudyLevel="concurso">
             <ConcursoCourse />
           </ProtectedRoute>
         }

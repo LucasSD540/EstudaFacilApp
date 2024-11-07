@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import { useStudyLevel } from "../../contexts/StudyLevelContext";
 import * as S from "./styles";
 import Slider from "../../components/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
@@ -7,15 +5,6 @@ import students from "../../components/assets/images/students.png";
 import ConcursoCard from "../../components/ConcursoCard";
 
 const ConcursoCourse = () => {
-  const { removeStudyLevel } = useStudyLevel();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("jwtToken");
-    removeStudyLevel();
-    navigate("/");
-  };
-
   const settings = {
     spaceBetween: 50,
     slidesPerView: 1,
@@ -53,7 +42,6 @@ const ConcursoCourse = () => {
           <ConcursoCard />
         </S.cardDiv>
       </div>
-      <button onClick={() => handleLogout()}>Logout</button>
     </S.concursoDiv>
   );
 };

@@ -1,10 +1,11 @@
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, requiredStudyLevel }) => {
   const token = localStorage.getItem("jwtToken");
+  const studyLevel = localStorage.getItem("studyLevel");
 
-  if (!token) {
-    return <Navigate to="/login" />;
+  if (!token || studyLevel !== requiredStudyLevel) {
+    return <Navigate to="/" />;
   }
 
   return children;

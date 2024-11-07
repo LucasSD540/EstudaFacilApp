@@ -43,14 +43,17 @@ const Login = () => {
         const { study_level } = userResponse.data;
 
         if (study_level === "enem") {
-          navigate("/enem-course");
           updateStudyLevel("enem");
+          localStorage.setItem("studyLevel", "enem");
+          navigate("/enem-course");
         } else if (study_level === "superior") {
-          navigate("/superior-course");
           updateStudyLevel("superior");
+          localStorage.setItem("studyLevel", "superior");
+          navigate("/superior-course");
         } else if (study_level === "concurso") {
-          navigate("/concurso-course");
           updateStudyLevel("concurso");
+          localStorage.setItem("studyLevel", "concurso");
+          navigate("/concurso-course");
         } else {
           Swal.fire({
             icon: "warning",

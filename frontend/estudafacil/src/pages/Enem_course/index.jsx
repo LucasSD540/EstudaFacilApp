@@ -1,19 +1,39 @@
-import { useNavigate } from "react-router-dom";
+import * as S from "./styles";
+import Slider from "../../components/Slider/Slider";
+import { SwiperSlide } from "swiper/react";
+import students from "../../components/assets/images/students.png";
 
 const EnemCourse = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("jwtToken");
-    localStorage.removeItem("studyLevelAuthenticated");
-    navigate("/");
+  const settings = {
+    spaceBetween: 50,
+    slidesPerView: 1,
+    navigation: true,
+    pagination: {
+      clickable: true,
+    },
+    loop: true,
   };
 
   return (
-    <div>
-      <h1>Enem autenticado!</h1>
-      <button onClick={() => handleLogout()}>Logout</button>
-    </div>
+    <S.concursoDiv>
+      <Slider settings={settings}>
+        <SwiperSlide>
+          <img src={students} alt="Estudantes" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={students} alt="Estudantes" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={students} alt="Estudantes" />
+        </SwiperSlide>
+      </Slider>
+      <div className="container">
+        <div className="concurso-title-div">
+          <span>|</span>
+          <p>MINHAS AULAS</p>
+        </div>
+      </div>
+    </S.concursoDiv>
   );
 };
 
