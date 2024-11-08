@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const enemDiv = styled.div`
+export const supeiorDiv = styled.div`
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
@@ -13,24 +13,6 @@ export const enemDiv = styled.div`
   .swiper-pagination-bullet-active {
     background-color: #af81d1;
   }
-
-  .enem-title-div {
-    margin-top: 48px;
-    color: #27dd4e;
-    display: flex;
-    align-items: center;
-
-    span {
-      margin-right: 8px;
-      font-size: 40px;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 18px;
-      font-weight: bold;
-    }
-  }
 `;
 
 export const cardDiv = styled.div`
@@ -40,4 +22,17 @@ export const cardDiv = styled.div`
   align-items: center;
   gap: 24px;
   margin-bottom: 48px;
+`;
+
+export const buttonsDiv = styled.div`
+  margin: 64px 0;
+  border-bottom: 1px solid #746d6d;
+
+  button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: #746d6d;
+    margin: 0 16px 4px 0;
+  }
 `;

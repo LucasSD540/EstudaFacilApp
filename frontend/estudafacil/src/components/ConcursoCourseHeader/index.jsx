@@ -88,11 +88,15 @@ const ConcursoHeader = () => {
             src={notification}
             alt="Ícone de notificação"
           />
-          <div className="user-info-div" onMouseEnter={() => openPopup()}>
+          <div className="user-info-div">
             <img src={profile} alt="Ícone de usuário" />
             <p>{data.fullName ? getFirstTwoNames(data.fullName) : ""}</p>
             {popup && (
-              <div className="user-popup" onMouseLeave={() => closePopup()}>
+              <div
+                className="user-popup"
+                onMouseEnter={openPopup}
+                onMouseLeave={closePopup}
+              >
                 <Link className="btn-link" to="/profile">
                   Editar perfil
                 </Link>
@@ -105,6 +109,11 @@ const ConcursoHeader = () => {
                 </Link>
               </div>
             )}
+            <div
+              className="user-info-container"
+              onMouseEnter={openPopup}
+              onMouseLeave={closePopup}
+            />
           </div>
         </S.userDiv>
       </div>

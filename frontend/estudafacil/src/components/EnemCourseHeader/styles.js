@@ -89,7 +89,6 @@ export const userDiv = styled.div`
     position: absolute;
     top: 50px;
     height: 100px;
-    max-width: 130px;
     width: 100%;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3);
     border-radius: 19px;

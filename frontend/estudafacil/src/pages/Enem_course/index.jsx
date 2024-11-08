@@ -1,7 +1,8 @@
-import * as S from "./styles";
 import Slider from "../../components/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
-import students from "../../components/assets/images/students.png";
+import enem_students from "../../components/assets/images/enem_students.png";
+import EnemCard from "../../components/EnemCard";
+import * as S from "./styles";
 
 const EnemCourse = () => {
   const settings = {
@@ -15,25 +16,33 @@ const EnemCourse = () => {
   };
 
   return (
-    <S.concursoDiv>
+    <S.enemDiv>
       <Slider settings={settings}>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={enem_students} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={enem_students} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={enem_students} alt="Estudantes" />
         </SwiperSlide>
       </Slider>
       <div className="container">
-        <div className="concurso-title-div">
+        <div className="enem-title-div">
           <span>|</span>
           <p>MINHAS AULAS</p>
         </div>
+        <S.cardDiv>
+          <EnemCard />
+          <EnemCard />
+          <EnemCard />
+          <EnemCard />
+          <EnemCard />
+          <EnemCard />
+        </S.cardDiv>
       </div>
-    </S.concursoDiv>
+    </S.enemDiv>
   );
 };
 
