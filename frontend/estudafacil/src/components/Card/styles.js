@@ -8,7 +8,7 @@ export const planDiv = styled.div`
   height: 640px;
   box-shadow: ${(props) =>
     props.shadowColor || "0px 0px 15px 10px rgba(0, 0, 0, 0.1)"};
-  padding: 32px;
+  padding: 64px 32px 0 32px;
   margin-top: ${(props) => props.marginStyle || "0"};
 
   .plan-name {
@@ -42,5 +42,28 @@ export const planDiv = styled.div`
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    margin-top: 48px;
+    list-style: none;
+
+    img {
+      margin-right: 16px;
+    }
+  }
+
+  .free {
+    display: ${(props) => (props.plan === "free" ? "block" : "none")};
+  }
+
+  .premium {
+    display: ${(props) => (props.plan === "premium" ? "block" : "none")};
+  }
+
+  .plus {
+    display: ${(props) => (props.plan === "plus" ? "block" : "none")};
   }
 `;

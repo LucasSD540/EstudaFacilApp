@@ -12,6 +12,7 @@ const Enem = () => {
             marginStyle="32px"
             studyLevelLink="/login"
             studyLevel="enem"
+            plan="free"
           />
           <Card
             planName="PREMIUM"
@@ -19,6 +20,7 @@ const Enem = () => {
             shadowColor="0px 0px 15px 10px rgba(255, 165, 2, 0.6)"
             studyLevelLink="/login"
             studyLevel="enem"
+            plan="premium"
           />
           <Card
             planName="PLUS"
@@ -26,6 +28,7 @@ const Enem = () => {
             marginStyle="32px"
             studyLevelLink="/login"
             studyLevel="enem"
+            plan="plus"
           />
         </div>
       </S.sectionDiv>
