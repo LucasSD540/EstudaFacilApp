@@ -6,4 +6,5 @@ urlpatterns = [
     path("api/estudafacilapp/", include('estudafacilapp.urls')),
     path("api/user/", include('users.urls')),
     path("api/doubt/", include('doubts.urls')),
+    path("api/plans/", include('plans.urls')),
 ]
