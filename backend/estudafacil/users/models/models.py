@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
 class UserManager(BaseUserManager):
@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
     def get_by_natural_key(self, email):
         return self.get(email=email)
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
   STUDY_LEVEL_CHOICES = [
         ('enem', 'Enem e Vestibular'),
         ('superior', 'Ensino Superior'),
@@ -34,6 +34,9 @@ class User(AbstractBaseUser):
   profilePicture = models.ImageField(upload_to='', blank=True, null=True)
   created_at = models.DateTimeField(auto_now_add=True)
   last_login = models.DateTimeField(blank=True, null=True)
+  is_staff = models.BooleanField(default=False)
+  is_superuser = models.BooleanField(default=False)
+  is_active = models.BooleanField(default=True)
   study_level = models.CharField(
         max_length=10,
         choices=STUDY_LEVEL_CHOICES,

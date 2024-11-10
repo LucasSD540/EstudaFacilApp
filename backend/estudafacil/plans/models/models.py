@@ -1,6 +1,7 @@
 from django.db import models
 
 class PlanFeature(models.Model):
+    is_include = models.BooleanField(blank="false", null="false")
     text_content = models.CharField(max_length=100)
 
     def __str__(self):
@@ -12,8 +13,6 @@ class Plans(models.Model):
         ('superior', 'Ensino Superior'),
         ('concurso', 'Concurso'),
     ]
-
-  is_include = models.BooleanField(blank="false", null="false")
   study_level = models.CharField(max_length=50,
         choices=STUDY_LEVEL_CHOICES,)
   features = models.ManyToManyField(PlanFeature)

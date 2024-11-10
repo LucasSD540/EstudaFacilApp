@@ -1,1 +1,1 @@
-from .views import PlanListCreateView, PlanListView, PlanUpdateView, PlanDeleteView, PlanFeatureListCreateView, PlanFeatureListView, PlanFeatureUpdateView, PlanFeatureDeleteView
+from .views import PlanListCreateView, PlanDetailView, PlanListView, PlanUpdateView, PlanDeleteView, PlanFeatureListCreateView, PlanFeatureListView, PlanFeatureUpdateView, PlanFeatureDeleteView

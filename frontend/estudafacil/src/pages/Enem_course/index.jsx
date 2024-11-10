@@ -1,6 +1,8 @@
 import Slider from "../../components/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
-import enem_students from "../../components/assets/images/enem_students.png";
+import enem1 from "../../components/assets/images/enem1.jpeg";
+import enem2 from "../../components/assets/images/enem2.jpeg";
+import enem3 from "../../components/assets/images/enem3.jpeg";
 import EnemCard from "../../components/EnemCard";
 import * as S from "./styles";
 
@@ -18,14 +20,14 @@ const EnemCourse = () => {
   return (
     <S.enemDiv>
       <Slider settings={settings}>
-        <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+        <SwiperSlide className="swiper-slide">
+          <img src={enem1} alt="Estudantes" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+        <SwiperSlide className="swiper-slide">
+          <img src={enem2} alt="Estudantes" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+        <SwiperSlide className="swiper-slide">
+          <img src={enem3} alt="Estudantes" />
         </SwiperSlide>
       </Slider>
       <div className="container">

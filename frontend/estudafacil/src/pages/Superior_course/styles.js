@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
 export const supeiorDiv = styled.div`
+  .swiper {
+    width: 100%;
+    height: 600px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;

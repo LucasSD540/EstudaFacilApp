@@ -8,8 +8,9 @@ class PlanListCreateView(generics.ListCreateAPIView):
   queryset = Plans.objects.all()
   serializer_class = PlansSerializer
 
-  def perform_create(self, serializer):
-    serializer.save()
+class PlanDetailView(generics.RetrieveAPIView):
+    queryset = Plans.objects.all()
+    serializer_class = PlansSerializer
 
 class PlanListView(generics.ListAPIView):
   queryset = Plans.objects.all()
@@ -28,9 +29,6 @@ class PlanDeleteView(generics.DestroyAPIView):
 class PlanFeatureListCreateView(generics.ListCreateAPIView):
   queryset = PlanFeature.objects.all()
   serializer_class = PlanFeatureSerializer
-
-  def perform_create(self, serializer):
-    serializer.save()
 
 class PlanFeatureListView(generics.ListAPIView):
   queryset = PlanFeature.objects.all()

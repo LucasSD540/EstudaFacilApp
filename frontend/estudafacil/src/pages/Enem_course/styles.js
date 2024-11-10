@@ -1,6 +1,21 @@
 import styled from "styled-components";
 
 export const enemDiv = styled.div`
+  .swiper {
+    width: 100%;
+    height: 600px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
