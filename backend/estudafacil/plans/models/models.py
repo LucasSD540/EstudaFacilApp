@@ -16,7 +16,8 @@ class Plans(models.Model):
   study_level = models.CharField(max_length=50,
         choices=STUDY_LEVEL_CHOICES,)
   features = models.ManyToManyField(PlanFeature)
-  plan_name = models.CharField(max_length=50)
+  plan_name = models.CharField(max_length=50, null="false", blank="false")
+  plan_price = models.CharField(max_length=20, null="false", blank="false")
 
   def __str__(self):
     return self.plan_name

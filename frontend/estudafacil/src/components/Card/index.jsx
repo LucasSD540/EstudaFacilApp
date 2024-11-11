@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import correct from "../../components/assets/images/correct.png";
 import wrong from "../../components/assets/images/wrong.png";
 import * as S from "./styles";
@@ -12,6 +14,52 @@ const Card = ({
   studyLevel,
   plan,
 }) => {
+  const [plans, setPlans] = useState({ free: [], premium: [], plus: [] });
+
+  useEffect(() => {
+    const getPlans = async () => {
+      try {
+        const response = await axios.get(
+          "http://127.0.0.1:8000/api/plans/list/",
+          {
+            params: { study_level: "enem" },
+          }
+        );
+
+        const plansData = { free: [], premium: [], plus: [] };
+
+        response.data.forEach((plan) => {
+          const planData = {
+            ...plan,
+            features: plan.features_details,
+          };
+
+          if (plan.plan_name.toLowerCase() === "free") {
+            plansData.free.push(planData);
+          } else if (plan.plan_name.toLowerCase() === "premium") {
+            plansData.premium.push(planData);
+          } else if (plan.plan_name.toLowerCase() === "plus") {
+            plansData.plus.push(planData);
+          }
+        });
+
+        setPlans(plansData);
+      } catch (error) {
+        console.error("Erro ao buscar planos:", error);
+      }
+    };
+
+    getPlans();
+  }, []);
+
+  const renderFeatures = (features) =>
+    features.map((feature, index) => (
+      <li className="list-item" key={index}>
+        <img src={feature.is_include ? correct : wrong} alt="" />
+        <p>{feature.text_content}</p>
+      </li>
+    ));
+
   const getStudyLevel = () => {
     localStorage.setItem("studyLevel", studyLevel);
   };
@@ -27,78 +75,28 @@ const Card = ({
         <p>{planName}</p>
       </div>
       <ul className="list free">
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Quantidade limitada de questões</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Anúncios</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Acesso às videoaulas</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Correção de redação por IA</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Correção de redação com professores</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Simulados</p>
-        </li>
+        {plans.free.map((plan, index) => (
+          <div key={index}>
+            <p>Preço: {plan.plan_price}</p>
+            {renderFeatures(plan.features)}
+          </div>
+        ))}
       </ul>
       <ul className="list premium">
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Quantidade ilimitada de questões</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Correção de redação por IA</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Simulados</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Anúncios</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Acesso a VideoAulas</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Correção De Redação Com Professores</p>
-        </li>
+        {plans.premium.map((plan, index) => (
+          <div key={index}>
+            <p>Preço: {plan.plan_price}</p>
+            {renderFeatures(plan.features)}
+          </div>
+        ))}
       </ul>
       <ul className="list plus">
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Quantidade ilimitada de questões</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Acesso a videoaulas</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Correção de redação por IA</p>
-        </li>
-        <li className="list-item">
-          <img src={correct} alt="" />
-          <p>Simulados</p>
-        </li>
-        <li className="list-item">
-          <img src={wrong} alt="" />
-          <p>Anúncios</p>
-        </li>
+        {plans.plus.map((plan, index) => (
+          <div key={index}>
+            <p>Preço: {plan.plan_price}</p>
+            {renderFeatures(plan.features)}
+          </div>
+        ))}
       </ul>
       <div className="plan-name second">
         <Link to={studyLevelLink} onClick={() => getStudyLevel()}>
