@@ -12,13 +12,15 @@ import SuperiorCourse from "./pages/Superior_course";
 import ConcursoCourse from "./pages/Concurso_course";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useStudyLevel } from "./contexts/StudyLevelContext";
+import Profile from "./pages/Profile";
 
 const Routing = () => {
+  const { studyLevel } = useStudyLevel();
   const { removeStudyLevel } = useStudyLevel();
   const location = useLocation();
 
   useEffect(() => {
-    const urlsParaRemoverStudyLevel = [
+    const urlsToRemoveUrls = [
       "/",
       "/sobre",
       "/login",
@@ -27,7 +29,7 @@ const Routing = () => {
       "/concurso",
     ];
 
-    if (urlsParaRemoverStudyLevel.includes(location.pathname)) {
+    if (urlsToRemoveUrls.includes(location.pathname)) {
       removeStudyLevel();
     }
   }, [location.pathname, removeStudyLevel]);
@@ -61,6 +63,14 @@ const Routing = () => {
         element={
           <ProtectedRoute requiredStudyLevel="concurso">
             <ConcursoCourse />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute requiredStudyLevel={studyLevel}>
+            <Profile />
           </ProtectedRoute>
         }
       />
