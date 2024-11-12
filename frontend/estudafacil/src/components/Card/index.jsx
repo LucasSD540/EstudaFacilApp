@@ -17,14 +17,19 @@ const Card = ({
   const [plans, setPlans] = useState({ free: [], premium: [], plus: [] });
 
   useEffect(() => {
+    console.log("Current studyLevel:", studyLevel);
+    setPlans({ free: [], premium: [], plus: [] });
+
     const getPlans = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/plans/list/",
+          `http://127.0.0.1:8000/api/plans/list/?study_level=${studyLevel}`,
           {
-            params: { study_level: "enem" },
+            params: { study_level: studyLevel },
           }
         );
+
+        console.log(response);
 
         const plansData = { free: [], premium: [], plus: [] };
 
@@ -50,15 +55,17 @@ const Card = ({
     };
 
     getPlans();
-  }, []);
+  }, [studyLevel]);
 
   const renderFeatures = (features) =>
-    features.map((feature, index) => (
-      <li className="list-item" key={index}>
-        <img src={feature.is_include ? correct : wrong} alt="" />
-        <p>{feature.text_content}</p>
-      </li>
-    ));
+    features
+      .sort((a, b) => b.is_include - a.is_include)
+      .map((feature, index) => (
+        <li className="list-item" key={index}>
+          <img src={feature.is_include ? correct : wrong} alt="" />
+          <p>{feature.text_content}</p>
+        </li>
+      ));
 
   const getStudyLevel = () => {
     localStorage.setItem("studyLevel", studyLevel);

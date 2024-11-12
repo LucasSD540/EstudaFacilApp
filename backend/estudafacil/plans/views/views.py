@@ -16,8 +16,16 @@ class PlanDetailView(generics.RetrieveAPIView):
     serializer_class = PlansSerializer
 
 class PlanListView(generics.ListAPIView):
-  queryset = Plans.objects.all()
   serializer_class = PlansSerializer
+
+  def get_queryset(self):
+        queryset = Plans.objects.all()
+        study_level = self.request.query_params.get('study_level', None)
+        
+        if study_level:
+            queryset = queryset.filter(study_level=study_level)
+        
+        return queryset
 
 class PlanUpdateView(generics.UpdateAPIView):
   queryset = Plans.objects.all()
