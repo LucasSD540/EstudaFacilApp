@@ -76,7 +76,7 @@ const ConcursoHeader = () => {
           className={({ isActive }) =>
             isActive ? "active-link link-item" : "inactive-link link-item"
           }
-          to="/concurso-course-anyLink"
+          to="/concurso-course-courses"
         >
           Meus concursos
         </NavLink>

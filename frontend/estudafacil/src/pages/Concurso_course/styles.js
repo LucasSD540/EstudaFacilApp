@@ -3,7 +3,17 @@ import styled from "styled-components";
 export const concursoDiv = styled.div`
   .swiper {
     width: 100%;
-    height: 600px;
+    height: 650px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    max-width: 100%;
+    object-fit: contain;
   }
 
   .swiper-slide {
@@ -13,7 +23,7 @@ export const concursoDiv = styled.div`
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: #fff;
+    color: #b805ff;
   }
 
   .swiper-pagination-bullet {

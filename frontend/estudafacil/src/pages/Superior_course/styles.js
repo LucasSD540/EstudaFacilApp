@@ -11,6 +11,16 @@ export const supeiorDiv = styled.div`
     align-items: center;
   }
 
+  .swiper-slide img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;

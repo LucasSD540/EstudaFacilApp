@@ -1,7 +1,9 @@
 import * as S from "./styles";
 import Slider from "../../components/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
-import students from "../../components/assets/images/students.png";
+import concurso_1 from "../../components/assets/images/concurso_1.jpeg";
+import concurso_2 from "../../components/assets/images/concurso_2.jpeg";
+import concurso_3 from "../../components/assets/images/concurso_3.jpeg";
 import ConcursoCard from "../../components/ConcursoCard";
 
 const ConcursoCourse = () => {
@@ -12,6 +14,10 @@ const ConcursoCourse = () => {
     pagination: {
       clickable: true,
     },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     loop: true,
   };
 
@@ -19,13 +25,13 @@ const ConcursoCourse = () => {
     <S.concursoDiv>
       <Slider settings={settings}>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={concurso_1} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={concurso_2} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={students} alt="Estudantes" />
+          <img src={concurso_3} alt="Estudantes" />
         </SwiperSlide>
       </Slider>
       <div className="container">

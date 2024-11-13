@@ -13,6 +13,8 @@ import ConcursoCourse from "./pages/Concurso_course";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useStudyLevel } from "./contexts/StudyLevelContext";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
+import MyConcurso from "./pages/MyConcurso_course";
 
 const Routing = () => {
   const { studyLevel } = useStudyLevel();
@@ -67,10 +69,26 @@ const Routing = () => {
         }
       />
       <Route
+        path="/concurso-course-courses"
+        element={
+          <ProtectedRoute requiredStudyLevel="concurso">
+            <MyConcurso />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/profile"
         element={
           <ProtectedRoute requiredStudyLevel={studyLevel}>
             <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile/edit-profile"
+        element={
+          <ProtectedRoute requiredStudyLevel={studyLevel}>
+            <EditProfile />
           </ProtectedRoute>
         }
       />

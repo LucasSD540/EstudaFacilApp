@@ -19,16 +19,22 @@ export const contentContainer = styled.div`
     width: 100%;
   }
 
-  .book-image {
+  .icon-image {
     max-width: 72px;
-    height: 48px;
+    height: 64px;
+    margin-right: 16px;
   }
 
   .text-div {
     padding: 48px 48px 0 32px;
   }
 
+  .description-text {
+    text-align: justify;
+  }
+
   .text-div-item {
+    display: flex;
     margin-bottom: 48px;
   }
 `;

@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import score from "../../components/assets/images/score_bar.png";
 import profile_big from "../../components/assets/images/profile_big.png";
 import profile from "../../components/assets/images/profile_big.png";
@@ -8,6 +11,39 @@ import * as S from "./styles";
 import RankingCard from "../../components/RankingCard";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState("");
+  const token = localStorage.getItem("jwtToken");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/user/me/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (token) {
+      fetchData();
+    }
+  }, [token]);
+
+  const getFirstTwoNames = (fullName) => {
+    const nameParts = fullName.split(" ");
+    const firstTwoNames = nameParts.slice(0, 2).join(" ");
+    return firstTwoNames;
+  };
+
+  const navigateToEdit = () => {
+    navigate("/profile/edit-profile");
+  };
+
   return (
     <>
       <S.profileContainerDiv>
@@ -16,20 +52,24 @@ const Profile = () => {
             <p className="div-title">Módulos concluídos</p>
             <div className="score_bar-div">
               <img src={score} alt="" />
-              <p>56%</p>
+              <p>60%</p>
             </div>
             <p className="div-subtitle">12 de 20 módulos</p>
           </S.modulesDiv>
           <S.profileDiv>
             <img src={profile_big} alt="" />
-            <p className="profile_name">Luis Guilherme</p>
-            <button className="edit-btn">Editar Perfil</button>
+            <p className="profile_name">
+              {data.fullName ? getFirstTwoNames(data.fullName) : ""}
+            </p>
+            <button className="edit-btn" onClick={() => navigateToEdit()}>
+              Editar Perfil
+            </button>
           </S.profileDiv>
           <S.activitiesDiv>
             <p className="div-title">Atividades concluídas</p>
             <div className="score_bar-div">
               <img src={score} alt="" />
-              <p>56%</p>
+              <p>60%</p>
             </div>
             <p className="div-subtitle">12 de 20 módulos</p>
           </S.activitiesDiv>
