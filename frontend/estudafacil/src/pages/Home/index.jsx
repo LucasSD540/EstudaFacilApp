@@ -23,7 +23,7 @@ export const Home = () => {
             Confira nossos Planos e libere seu potencial nos seus estudos!
           </p>
         </div>
-        <S.bannerImg src={banner} alt="Imagem do banner" />
+        <img className="banner-img" src={banner} alt="Imagem do banner" />
       </S.bannerContainer>
       <div className="container">
         <S.planSection>

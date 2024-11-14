@@ -38,6 +38,20 @@ export const firstContainerDiv = styled.div`
     margin-bottom: 32px;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .secondary-div {
+      width: 80%;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .change-profile-photo {
+      font-size: 10px;
+    }
+  }
 `;
 
 export const secondContainerDiv = styled.div`
@@ -108,5 +122,28 @@ export const secondContainerDiv = styled.div`
   .second-secondary-div {
     height: 100%;
     border-top: 1px solid #4f0f7a;
+  }
+
+  @media (max-width: 768px) {
+    .center-div {
+      width: 80%;
+    }
+
+    .config-options {
+      font-size: 11px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    .select-option {
+      height: 30px;
+    }
+
+    .update-btn {
+      width: 80%;
+      font-size: 12px;
+    }
   }
 `;

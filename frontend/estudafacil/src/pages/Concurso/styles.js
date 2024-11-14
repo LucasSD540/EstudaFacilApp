@@ -20,4 +20,11 @@ export const sectionDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    .card-div {
+      flex-direction: column;
+      gap: 48px;
+    }
+  }
 `;

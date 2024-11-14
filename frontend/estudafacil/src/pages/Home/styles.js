@@ -11,7 +11,12 @@ export const bannerContainer = styled.div`
     transform: translate(-50%);
     max-width: 600px;
     width: 100%;
-    height: 480px;
+    height: 240px;
+  }
+
+  .banner-img {
+    width: 50%;
+    height: 540px;
   }
 
   div {
@@ -19,27 +24,44 @@ export const bannerContainer = styled.div`
     height: 540px;
     background-color: #b805ff;
     color: #fff;
+  }
+
+  .text-title {
+    font-size: 36px;
+    text-align: center;
+    margin: 48px 0 24px 0;
+
+    span {
+      color: #dcdc28;
+    }
+  }
+
+  .text-subTitle {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    div {
+      height: 320px;
+      width: 60%;
+      padding: 0 12px;
+    }
+
+    .banner-img {
+      height: 320px;
+      width: 40%;
+    }
 
     .text-title {
-      font-size: 36px;
-      text-align: center;
-      margin: 48px 0 24px 0;
-
-      span {
-        color: #dcdc28;
-      }
+      font-size: 13px;
     }
 
     .text-subTitle {
-      font-size: 18px;
-      text-align: center;
+      font-size: 10px;
+      text-align: justify;
     }
   }
-`;
-
-export const bannerImg = styled.img`
-  width: 50%;
-  height: 540px;
 `;
 
 export const planSection = styled.div`
@@ -108,6 +130,12 @@ export const planSection = styled.div`
     max-width: 300px;
     width: 100%;
     height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    .plans-container {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 

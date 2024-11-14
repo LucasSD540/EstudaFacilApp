@@ -4,11 +4,14 @@ import Axios from "axios";
 import { useStudyLevel } from "../../contexts/StudyLevelContext";
 import logo from "../assets/images/logo.png";
 import profile from "../assets/images/profile.png";
+import menu from "../assets/images/menu.png";
+import close from "../assets/images/close.png";
 import notification from "../assets/images/notification_icon.png";
 import * as S from "./styles";
 
 const EnemHeader = () => {
   const { removeStudyLevel } = useStudyLevel();
+  const [menuDiv, setMenuDiv] = useState(false);
   const [data, setData] = useState("");
   const [popup, setPopup] = useState(false);
   const token = localStorage.getItem("jwtToken");
@@ -51,12 +54,16 @@ const EnemHeader = () => {
     removeStudyLevel();
   };
 
+  const handleMenu = () => {
+    setMenuDiv(!menuDiv);
+  };
+
   return (
     <S.headerContainer>
       <Link className="logoStyle" to="/enem-course">
         <S.logoDiv>
           <img src={logo} alt="Logo" />
-          <p>
+          <p className="logo-text">
             <span className="purple">Estuda</span>{" "}
             <span className="green">Fácil</span>
           </p>
@@ -116,6 +123,53 @@ const EnemHeader = () => {
           </div>
         </S.userDiv>
       </div>
+      <img onClick={() => handleMenu()} src={menu} alt="" />
+      {menuDiv && (
+        <div className="responsive-menu">
+          <img
+            className="close-img"
+            onClick={() => handleMenu()}
+            src={close}
+            alt=""
+          />
+          <NavLink
+            onClick={() => handleMenu()}
+            className={({ isActive }) =>
+              isActive ? "active-link link-item" : "inactive-link link-item"
+            }
+            to="/enem-course"
+          >
+            Início
+          </NavLink>
+          <NavLink
+            onClick={() => handleMenu()}
+            className={({ isActive }) =>
+              isActive ? "active-link link-item" : "inactive-link link-item"
+            }
+            to="/enem-course/course"
+          >
+            Meus cursos
+          </NavLink>
+          <NavLink
+            onClick={() => handleMenu()}
+            className={({ isActive }) =>
+              isActive ? "active-link link-item" : "inactive-link link-item"
+            }
+            to="/profile"
+          >
+            Editar perfil
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "active-link link-item" : "inactive-link link-item"
+            }
+            onClick={() => handleLogout()}
+            to="/"
+          >
+            Encerrar sessão
+          </NavLink>
+        </div>
+      )}
     </S.headerContainer>
   );
 };

@@ -52,6 +52,42 @@ export const headerContainer = styled.div`
   .logoStyle {
     text-decoration: none;
   }
+
+  .responsive-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #fff;
+    height: 100vh;
+    width: 100%;
+    padding-top: 48px;
+    font-size: 20px;
+
+    .close-img {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+    }
+
+    .link-item {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav,
+    .login {
+      display: none;
+    }
+
+    .logo-text {
+      display: none;
+    }
+  }
 `;
 
 export const userDiv = styled.div`
@@ -109,6 +145,12 @@ export const userDiv = styled.div`
     .btn-link:hover {
       border: 1px solid #42e164;
       color: #42e164;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .user-info-div {
+      display: none;
     }
   }
 `;

@@ -46,6 +46,16 @@ export const enemDiv = styled.div`
       font-weight: bold;
     }
   }
+
+  @media (max-width: 768px) {
+    .swiper {
+      height: 220px;
+    }
+
+    .card-div {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const cardDiv = styled.div`

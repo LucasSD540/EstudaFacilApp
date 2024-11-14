@@ -8,6 +8,20 @@ export const profileContainerDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    .modules {
+      display: none;
+    }
+
+    .profile {
+      margin: 0 auto;
+    }
+
+    .activities {
+      display: none;
+    }
+  }
 `;
 
 export const modulesDiv = styled.div`
@@ -89,6 +103,7 @@ export const activitiesDiv = styled.div`
 
 export const RankingContainerDiv = styled.div`
   text-align: center;
+  margin: 48px 0;
 
   h4 {
     font-size: 28px;
@@ -111,6 +126,12 @@ export const RankingContainerDiv = styled.div`
       color: #6b2897;
       margin-bottom: 32px;
       font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .score_ranking-div {
+      padding: 8px;
     }
   }
 `;

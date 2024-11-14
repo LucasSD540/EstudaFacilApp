@@ -41,7 +41,7 @@ const SuperiorCourse = () => {
           <button>2024/2</button>
           <button>Cursos Livres</button>
         </S.buttonsDiv>
-        <S.cardDiv>
+        <S.cardDiv className="card-div">
           <SuperiorCard />
           <SuperiorCard />
           <SuperiorCard />

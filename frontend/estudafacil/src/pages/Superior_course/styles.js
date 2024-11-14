@@ -33,6 +33,16 @@ export const supeiorDiv = styled.div`
   .swiper-pagination-bullet-active {
     background-color: #af81d1;
   }
+
+  @media (max-width: 768px) {
+    .swiper {
+      height: 220px;
+    }
+
+    .card-div {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const cardDiv = styled.div`
@@ -54,5 +64,11 @@ export const buttonsDiv = styled.div`
     font-size: 18px;
     color: #746d6d;
     margin: 0 16px 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    button {
+      font-size: 10px;
+    }
   }
 `;

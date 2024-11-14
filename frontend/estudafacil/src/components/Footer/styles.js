@@ -25,4 +25,20 @@ export const footerDiv = styled.div`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .links-div {
+      display: flex;
+      flex-direction: column;
+
+      .link-item {
+        text-align: center;
+        margin: 8px 0;
+      }
+    }
+  }
 `;

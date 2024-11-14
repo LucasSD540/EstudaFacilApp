@@ -39,7 +39,7 @@ const ConcursoCourse = () => {
           <span>|</span>
           <p>PRINCIPAIS CONCURSOS</p>
         </div>
-        <S.cardDiv>
+        <S.cardDiv className="card-div">
           <ConcursoCard />
           <ConcursoCard />
           <ConcursoCard />

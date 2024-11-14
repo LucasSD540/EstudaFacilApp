@@ -48,7 +48,7 @@ const Profile = () => {
     <>
       <S.profileContainerDiv>
         <div className="container">
-          <S.modulesDiv>
+          <S.modulesDiv className="modules">
             <p className="div-title">Módulos concluídos</p>
             <div className="score_bar-div">
               <img src={score} alt="" />
@@ -56,7 +56,7 @@ const Profile = () => {
             </div>
             <p className="div-subtitle">12 de 20 módulos</p>
           </S.modulesDiv>
-          <S.profileDiv>
+          <S.profileDiv className="profile">
             <img src={profile_big} alt="" />
             <p className="profile_name">
               {data.fullName ? getFirstTwoNames(data.fullName) : ""}
@@ -65,7 +65,7 @@ const Profile = () => {
               Editar Perfil
             </button>
           </S.profileDiv>
-          <S.activitiesDiv>
+          <S.activitiesDiv className="activities">
             <p className="div-title">Atividades concluídas</p>
             <div className="score_bar-div">
               <img src={score} alt="" />

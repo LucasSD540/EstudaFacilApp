@@ -39,7 +39,7 @@ const EnemCourse = () => {
           <span>|</span>
           <p>MINHAS AULAS</p>
         </div>
-        <S.cardDiv>
+        <S.cardDiv className="card-div">
           <EnemCard />
           <EnemCard />
           <EnemCard />

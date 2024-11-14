@@ -34,4 +34,19 @@ export const rankingDiv = styled.div`
       color: #fff;
     }
   }
+
+  @media (max-width: 768px) {
+    .div-2 {
+      font-size: 12px;
+    }
+
+    .div-1 {
+    img {
+      height: 24px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
 `;

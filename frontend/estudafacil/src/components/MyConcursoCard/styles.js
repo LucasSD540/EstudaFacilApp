@@ -99,4 +99,48 @@ export const concursoCard = styled.div`
   .btn-2 {
     background-color: #6e59eb;
   }
+
+  @media (max-width: 768px) {
+    .concurso-btn {
+      font-size: 8px;
+      max-width: 50px;
+    }
+
+    .companyName {
+      font-size: 9px;
+      margin: 0 8px;
+    }
+
+    .concursoLevel {
+      font-size: 9px;
+    }
+
+    .first-div {
+      padding-bottom: 8px;
+
+      img {
+        height: 24px;
+      }
+    }
+
+    .course-statistics {
+      font-size: 12px;
+
+      img {
+        height: 12px;
+      }
+    }
+
+    .course-buttons {
+      button {
+        padding: 4px;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+    }
+
+    .btn-1 {
+      margin-right: 8px;
+    }
+  }
 `;

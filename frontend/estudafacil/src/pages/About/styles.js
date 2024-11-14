@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const main = styled.div`
+  @media (max-width: 768px) {
+    .about {
+      padding-left: 0;
+    }
+  }
+`;
+
 export const aboutSection = styled.div`
   padding-left: 48px;
   margin: 64px 0;
@@ -9,6 +17,12 @@ export const aboutSection = styled.div`
     color: #b805ff;
     font-size: 32px;
     margin-bottom: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
