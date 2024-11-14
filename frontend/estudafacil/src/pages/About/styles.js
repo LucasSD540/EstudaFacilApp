@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const aboutSection = styled.div`
+  padding-left: 48px;
   margin: 64px 0;
 
   h3 {
@@ -26,6 +27,9 @@ export const contentContainer = styled.div`
   }
 
   .text-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 48px 48px 0 32px;
   }
 

@@ -76,8 +76,7 @@ export const userDiv = styled.div`
     position: absolute;
     left: 0;
     top: 4px;
-    height: 200px;
-    max-width: 132px;
+    height: 45px;
     width: 100%;
   }
 
