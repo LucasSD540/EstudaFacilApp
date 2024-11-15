@@ -83,7 +83,7 @@ const Login = () => {
     const { fullName, email, password, study_level } = values;
 
     try {
-      await axios.post("http://127.0.0.1:8000/api/user/create/", {
+      await axios.post(`${apiUrl}/api/user/create/`, {
         fullName,
         email,
         password,
