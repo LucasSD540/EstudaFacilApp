@@ -15,7 +15,7 @@ environ.Env.read_env(env_file=BASE_DIR / ".env")
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -141,12 +141,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'estudafacilapp.fly.dev']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://estuda-facil-app.vercel.app',
-    'https://estudafacilapp.fly.dev',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
