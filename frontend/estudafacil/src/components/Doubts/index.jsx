@@ -6,13 +6,12 @@ import * as S from "./styles";
 const Doubt = () => {
   const [isOpenIndex, setIsOpenIndex] = useState(null);
   const [data, setData] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get(
-          "http://127.0.0.1:8000/api/doubt/list/"
-        );
+        const response = await Axios.get(`${apiUrl}/api/doubt/list/`);
         setData(response.data);
       } catch (err) {
         console.log(err);
@@ -20,7 +19,7 @@ const Doubt = () => {
     };
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
   const toggleDoubt = (index) => {
     setIsOpenIndex(isOpenIndex === index ? null : index);

@@ -141,11 +141,12 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'estudafacilapp.fly.dev']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'https://estuda-facil-app.vercel.app'
+    'https://estuda-facil-app.vercel.app/'
+    'https://estudafacilapp.fly.dev'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
