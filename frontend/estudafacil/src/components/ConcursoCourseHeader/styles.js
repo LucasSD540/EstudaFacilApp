@@ -88,6 +88,12 @@ export const headerContainer = styled.div`
       font-size: 14px;
     }
   }
+
+  @media (min-width: 769px) {
+    .menu {
+      display: none;
+    }
+  }
 `;
 
 export const userDiv = styled.div`

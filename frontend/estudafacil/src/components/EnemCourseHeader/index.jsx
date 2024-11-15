@@ -123,7 +123,7 @@ const EnemHeader = () => {
           </div>
         </S.userDiv>
       </div>
-      <img onClick={() => handleMenu()} src={menu} alt="" />
+      <img className="menu" onClick={() => handleMenu()} src={menu} alt="" />
       {menuDiv && (
         <div className="responsive-menu">
           <img

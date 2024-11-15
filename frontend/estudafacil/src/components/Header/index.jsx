@@ -82,7 +82,12 @@ const Header = () => {
               <p>Entrar</p>
             </S.loginDiv>
           </Link>
-          <img onClick={() => handleMenu()} src={menu} alt="" />
+          <img
+            className="menu"
+            onClick={() => handleMenu()}
+            src={menu}
+            alt=""
+          />
           {menuDiv && (
             <div className="responsive-menu">
               <img

@@ -84,6 +84,12 @@ export const headerContainer = styled.div`
       display: none;
     }
   }
+
+  @media (min-width: 769px) {
+    .menu {
+      display: none;
+    }
+  }
 `;
 
 export const loginDiv = styled.div`
