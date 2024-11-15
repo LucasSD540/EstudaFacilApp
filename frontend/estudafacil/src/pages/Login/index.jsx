@@ -13,32 +13,27 @@ const Login = () => {
   const [isEmailError, setIsEmailError] = useState(false);
   const [initialStudyLevel, setInitialStudyLevel] = useState("");
   const { updateStudyLevel } = useStudyLevel();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleLogin = async (values, { resetForm }) => {
     const { email, password } = values;
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/user/token/",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`${apiUrl}/api/user/token/`, {
+        email,
+        password,
+      });
 
       const token = response.data.access;
 
       if (token) {
         localStorage.setItem("jwtToken", token);
 
-        const userResponse = await axios.get(
-          "http://127.0.0.1:8000/api/user/me/",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const userResponse = await axios.get(`${apiUrl}/api/user/me/`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const { study_level } = userResponse.data;
 

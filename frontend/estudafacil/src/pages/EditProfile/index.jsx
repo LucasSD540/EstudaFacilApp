@@ -7,11 +7,12 @@ const EditProfile = () => {
   const [option, setOption] = useState(false);
   const [data, setData] = useState("");
   const token = localStorage.getItem("jwtToken");
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/user/me/", {
+        const response = await axios.get(`${apiUrl}/api/user/me/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -24,7 +25,7 @@ const EditProfile = () => {
     if (token) {
       fetchData();
     }
-  }, [token]);
+  }, [token, apiUrl]);
 
   const handleOptionTrue = () => {
     setOption(true);

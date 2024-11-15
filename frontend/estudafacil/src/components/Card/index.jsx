@@ -15,6 +15,7 @@ const Card = ({
   plan,
 }) => {
   const [plans, setPlans] = useState({ free: [], premium: [], plus: [] });
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     console.log("Current studyLevel:", studyLevel);
@@ -23,7 +24,7 @@ const Card = ({
     const getPlans = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/plans/list/?study_level=${studyLevel}`,
+          `${apiUrl}/api/plans/list/?study_level=${studyLevel}`,
           {
             params: { study_level: studyLevel },
           }
@@ -55,7 +56,7 @@ const Card = ({
     };
 
     getPlans();
-  }, [studyLevel]);
+  }, [studyLevel, apiUrl]);
 
   const renderFeatures = (features) =>
     features

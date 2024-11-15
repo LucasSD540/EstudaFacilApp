@@ -15,11 +15,12 @@ const EnemHeader = () => {
   const [data, setData] = useState("");
   const [popup, setPopup] = useState(false);
   const token = localStorage.getItem("jwtToken");
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get("http://127.0.0.1:8000/api/user/me/", {
+        const response = await Axios.get(`${apiUrl}/api/user/me/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +34,7 @@ const EnemHeader = () => {
     if (token) {
       fetchData();
     }
-  }, [token]);
+  }, [token, apiUrl]);
 
   const getFirstTwoNames = (fullName) => {
     const nameParts = fullName.split(" ");

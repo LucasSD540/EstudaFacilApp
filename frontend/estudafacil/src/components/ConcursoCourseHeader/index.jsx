@@ -14,13 +14,14 @@ const ConcursoHeader = () => {
   const [menuDiv, setMenuDiv] = useState(false);
   const [data, setData] = useState("");
   const [popup, setPopup] = useState(false);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const token = localStorage.getItem("jwtToken");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get("http://127.0.0.1:8000/api/user/me/", {
+        const response = await Axios.get(`${apiUrl}/api/user/me/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -34,7 +35,7 @@ const ConcursoHeader = () => {
     if (token) {
       fetchData();
     }
-  }, [token]);
+  }, [token, apiUrl]);
 
   const getFirstTwoNames = (fullName) => {
     const nameParts = fullName.split(" ");
