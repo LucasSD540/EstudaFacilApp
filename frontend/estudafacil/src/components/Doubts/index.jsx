@@ -10,7 +10,9 @@ const Doubt = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get(`/api/doubt/list/`);
+        const response = await Axios.get(
+          `https://lucassd770.pythonanywhere.com/api/doubt/list/`
+        );
         setData(response.data);
       } catch (err) {
         console.log(err);
