@@ -12,11 +12,14 @@ const EditProfile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/user/me/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `https://lucassd770.pythonanywhere.com/api/user/me/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setData(response.data);
       } catch (error) {
         console.log(error);

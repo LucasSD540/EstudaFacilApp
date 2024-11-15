@@ -19,21 +19,27 @@ const Login = () => {
     const { email, password } = values;
 
     try {
-      const response = await axios.post(`${apiUrl}/api/user/token/`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `https://lucassd770.pythonanywhere.com/api/user/token/`,
+        {
+          email,
+          password,
+        }
+      );
 
       const token = response.data.access;
 
       if (token) {
         localStorage.setItem("jwtToken", token);
 
-        const userResponse = await axios.get(`${apiUrl}/api/user/me/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const userResponse = await axios.get(
+          `https://lucassd770.pythonanywhere.com/api/user/me/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         const { study_level } = userResponse.data;
 
@@ -83,12 +89,15 @@ const Login = () => {
     const { fullName, email, password, study_level } = values;
 
     try {
-      await axios.post(`${apiUrl}/api/user/create/`, {
-        fullName,
-        email,
-        password,
-        study_level,
-      });
+      await axios.post(
+        `https://lucassd770.pythonanywhere.com/api/user/create/`,
+        {
+          fullName,
+          email,
+          password,
+          study_level,
+        }
+      );
 
       Swal.fire({
         title: "Sucesso!",

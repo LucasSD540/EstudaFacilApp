@@ -20,11 +20,14 @@ const EnemHeader = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get(`${apiUrl}/api/user/me/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await Axios.get(
+          `https://lucassd770.pythonanywhere.com/api/user/me/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setData(response.data);
       } catch (err) {
         console.log(err);

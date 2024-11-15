@@ -24,7 +24,7 @@ const Card = ({
     const getPlans = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl}/api/plans/list/?study_level=${studyLevel}`,
+          `https://lucassd770.pythonanywhere.com/api/plans/list/?study_level=${studyLevel}`,
           {
             params: { study_level: studyLevel },
           }
