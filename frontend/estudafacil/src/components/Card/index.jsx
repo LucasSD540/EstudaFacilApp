@@ -15,7 +15,6 @@ const Card = ({
   plan,
 }) => {
   const [plans, setPlans] = useState({ free: [], premium: [], plus: [] });
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     console.log("Current studyLevel:", studyLevel);
@@ -56,7 +55,7 @@ const Card = ({
     };
 
     getPlans();
-  }, [studyLevel, apiUrl]);
+  }, [studyLevel]);
 
   const renderFeatures = (features) =>
     features

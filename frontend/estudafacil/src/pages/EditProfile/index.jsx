@@ -7,7 +7,6 @@ const EditProfile = () => {
   const [option, setOption] = useState(false);
   const [data, setData] = useState("");
   const token = localStorage.getItem("jwtToken");
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +27,7 @@ const EditProfile = () => {
     if (token) {
       fetchData();
     }
-  }, [token, apiUrl]);
+  }, [token]);
 
   const handleOptionTrue = () => {
     setOption(true);

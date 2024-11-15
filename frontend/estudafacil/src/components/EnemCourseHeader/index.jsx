@@ -15,7 +15,6 @@ const EnemHeader = () => {
   const [data, setData] = useState("");
   const [popup, setPopup] = useState(false);
   const token = localStorage.getItem("jwtToken");
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +36,7 @@ const EnemHeader = () => {
     if (token) {
       fetchData();
     }
-  }, [token, apiUrl]);
+  }, [token]);
 
   const getFirstTwoNames = (fullName) => {
     const nameParts = fullName.split(" ");

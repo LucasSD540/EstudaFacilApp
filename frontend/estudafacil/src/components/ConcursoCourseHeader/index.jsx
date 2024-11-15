@@ -14,7 +14,6 @@ const ConcursoHeader = () => {
   const [menuDiv, setMenuDiv] = useState(false);
   const [data, setData] = useState("");
   const [popup, setPopup] = useState(false);
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const token = localStorage.getItem("jwtToken");
 
@@ -38,7 +37,7 @@ const ConcursoHeader = () => {
     if (token) {
       fetchData();
     }
-  }, [token, apiUrl]);
+  }, [token]);
 
   const getFirstTwoNames = (fullName) => {
     const nameParts = fullName.split(" ");

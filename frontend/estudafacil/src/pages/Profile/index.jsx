@@ -14,7 +14,6 @@ const Profile = () => {
   const navigate = useNavigate();
   const [data, setData] = useState("");
   const token = localStorage.getItem("jwtToken");
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +35,7 @@ const Profile = () => {
     if (token) {
       fetchData();
     }
-  }, [token, apiUrl]);
+  }, [token]);
 
   const getFirstTwoNames = (fullName) => {
     const nameParts = fullName.split(" ");

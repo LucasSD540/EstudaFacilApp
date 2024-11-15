@@ -13,7 +13,6 @@ const Login = () => {
   const [isEmailError, setIsEmailError] = useState(false);
   const [initialStudyLevel, setInitialStudyLevel] = useState("");
   const { updateStudyLevel } = useStudyLevel();
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleLogin = async (values, { resetForm }) => {
     const { email, password } = values;
