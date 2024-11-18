@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import woman from "../../components/assets/images/woman.png";
 import banner from "../../components/assets/images/banner.png";
 import enem from "../../components/assets/images/enem_image.png";
@@ -32,17 +33,17 @@ export const Home = () => {
             <div className="plan-item">
               <img src={enem} alt="" className="plan-image" />
               <h4>Enem e Vestibular</h4>
-              <button to="/enem" className="btn-plan">Conheça os Planos</button>
+              <Link> to="/enem" className="btn-plan">Conheça os Planos</Link>
             </div>
             <div className="plan-item">
               <img src={superior} alt="" className="plan-image" />
               <h4>Ensino Superior</h4>
-              <button to="/superior" className="btn-plan">Conheça os Planos</button>
+              <Link to="/superior" className="btn-plan">Conheça os Planos</Link>
             </div>
             <div className="plan-item">
               <img src={concurso} alt="" className="plan-image" />
               <h4>Concurso</h4>
-              <button to="/concurso" className="btn-plan">Conheça os Planos</button>
+              <Link to="/concurso" className="btn-plan">Conheça os Planos</Link>
             </div>
           </div>
         </S.planSection>
