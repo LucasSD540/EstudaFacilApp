@@ -1,7 +1,9 @@
 import SuperiorCard from "../../components/SuperiorCard";
 import Slider from "../../components/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
-import enem_students from "../../components/assets/images/enem_students.png";
+import superior1 from "../../components/assets/images/superior1.jpeg";
+import superior2 from "../../components/assets/images/superior2.jpeg";
+import superior3 from "../../components/assets/images/superior3.jpeg";
 import * as S from "./styles";
 
 const SuperiorCourse = () => {
@@ -23,13 +25,13 @@ const SuperiorCourse = () => {
     <S.supeiorDiv>
       <Slider settings={settings}>
         <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+          <img src={superior1} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+          <img src={superior2} alt="Estudantes" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={enem_students} alt="Estudantes" />
+          <img src={superior3} alt="Estudantes" />
         </SwiperSlide>
       </Slider>
       <div className="container">
