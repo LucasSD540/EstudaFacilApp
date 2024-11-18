@@ -111,13 +111,15 @@ export const planSection = styled.div`
     background-color: #b805ff;
     color: #fff;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     max-width: 140px;
     width: 100%;
     height: 40px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
   }
 
   .btn-plan:hover {
