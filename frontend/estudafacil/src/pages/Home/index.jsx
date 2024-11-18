@@ -33,7 +33,7 @@ export const Home = () => {
             <div className="plan-item">
               <img src={enem} alt="" className="plan-image" />
               <h4>Enem e Vestibular</h4>
-              <Link> to="/enem" className="btn-plan">Conheça os Planos</Link>
+              <Link to="/enem" className="btn-plan">Conheça os Planos</Link>
             </div>
             <div className="plan-item">
               <img src={superior} alt="" className="plan-image" />
