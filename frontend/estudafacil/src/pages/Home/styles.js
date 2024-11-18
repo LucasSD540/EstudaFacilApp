@@ -119,6 +119,7 @@ export const planSection = styled.div`
     border-radius: 30px;
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
   }
 
   .btn-plan:hover {
