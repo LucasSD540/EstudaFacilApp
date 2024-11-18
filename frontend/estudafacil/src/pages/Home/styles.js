@@ -114,7 +114,7 @@ export const planSection = styled.div`
     font-size: 13px;
     max-width: 140px;
     width: 100%;
-    height: 40px;
+    padding: 8px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
