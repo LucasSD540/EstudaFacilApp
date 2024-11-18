@@ -32,17 +32,17 @@ export const Home = () => {
             <div className="plan-item">
               <img src={enem} alt="" className="plan-image" />
               <h4>Enem e Vestibular</h4>
-              <button className="btn-plan">Conheça os Planos</button>
+              <button to="/enem" className="btn-plan">Conheça os Planos</button>
             </div>
             <div className="plan-item">
               <img src={superior} alt="" className="plan-image" />
               <h4>Ensino Superior</h4>
-              <button className="btn-plan">Conheça os Planos</button>
+              <button to="/superior" className="btn-plan">Conheça os Planos</button>
             </div>
             <div className="plan-item">
               <img src={concurso} alt="" className="plan-image" />
               <h4>Concurso</h4>
-              <button className="btn-plan">Conheça os Planos</button>
+              <button to="/concurso" className="btn-plan">Conheça os Planos</button>
             </div>
           </div>
         </S.planSection>
