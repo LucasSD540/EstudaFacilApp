@@ -49,7 +49,7 @@ const Header = () => {
               }
               to="/enem"
             >
-              Enem e Vestibular
+              Enem
             </NavLink>
             <NavLink
               className={({ isActive }) =>

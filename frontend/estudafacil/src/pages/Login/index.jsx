@@ -203,7 +203,9 @@ const Login = () => {
             </div>
             <Link
               className="forgot-password"
-              to={"http://localhost:8000/api/estudafacilapp/send-email/"}
+              to={
+                "https://lucassd770.pythonanywhere.com/api/estudafacilapp/send-email/"
+              }
             >
               Esqueceu sua senha?
             </Link>
